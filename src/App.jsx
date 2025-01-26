@@ -10,10 +10,10 @@ function App() {
 
   return (
     <>
-    <section className="main-section">
+      <section className="main-section">
 
-    <Post/>
-          </section>
+        <Post />
+      </section>
 
     </>
   )

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { postData, updateData } from '../api/PostApi'
+import { useForm } from "react-hook-form"
+
 
 export default function Form({ data, setData, updateDataApi, setUpdateDataApi }) {
 
@@ -62,7 +64,7 @@ export default function Form({ data, setData, updateDataApi, setUpdateDataApi })
             }
             setAddData({ title: "", body: "" })
             setUpdateDataApi({})
-            
+
         } catch (error) {
 
         }
@@ -77,28 +79,30 @@ export default function Form({ data, setData, updateDataApi, setUpdateDataApi })
             addPostData()
         } else if (action === 'Edit')
             updatePostData()
+            
     }
 
     return (
         <>
-            <div className="form">
-                <form action="" onSubmit={handleFormSubmit}>
+            <div className='w-1/2 m-auto'>
+                <div className="form">
+                    <form action="" onSubmit={handleFormSubmit}>
+                        <input type="text" placeholder='add Title'
+                            id='title'
+                            name='title'
+                            value={addData.title}
+                            onChange={handleInputChange}
+                        />
 
-                    <input type="text" placeholder='add Title'
-                        id='title'
-                        name='title'
-                        value={addData.title}
-                        onChange={handleInputChange}
-                    />
-
-                    <input type="text" placeholder='add Post'
-                        id='body'
-                        name='body'
-                        value={addData.body}
-                        onChange={handleInputChange}
-                    />
-                    <button type='submit' value={isEmpty ? 'ADD' : 'Edit'}>{isEmpty ? 'ADD' : 'Edit'}</button>
-                </form>
+                        <input type="text" placeholder='add Post'
+                            id='body'
+                            name='body'
+                            value={addData.body}
+                            onChange={handleInputChange}
+                        />
+                        <button type='submit' value={isEmpty ? 'ADD' : 'Edit'}>{isEmpty ? 'ADD' : 'Edit'}</button>
+                    </form>
+                </div>
 
             </div>
         </>

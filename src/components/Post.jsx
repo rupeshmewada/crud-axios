@@ -38,8 +38,8 @@ export default function Post() {
     }
 
     const handleUpdatePost = (curEle) => {
-        // console.log(curEle);
         setUpdateDataApi(curEle)
+        
     }
 
     return (
